@@ -1,0 +1,90 @@
+# Android / Kotlin / Gradle - .gitignore
+
+# Gradle
+.gradle/
+/build/
+**/build/
+
+# Local configuration
+/local.properties
+/.idea/
+*.iml
+
+# IntelliJ
+.idea/*
+# keep the following files in .idea if needed (uncomment to keep)
+# .idea/inspectionProfiles
+
+# User-specific files
+*.log
+*.swp
+*~
+.DS_Store
+
+# Android Studio captures
+captures/
+
+# External native build
+.externalNativeBuild/
+.cxx/
+
+# Keystore files
+*.jks
+*.keystore
+
+# Generated files
+*.apk
+*.ap_
+*.aab
+
+# Files for the emulator
+*.img
+*.lock
+
+# Kotlin/JS
+/node_modules/
+
+# Others
+*.class
+*.jar
+*.war
+*.ear
+
+# NDK
+obj/
+
+# Gradle wrapper - keep gradle wrapper jar in repo usually, but ignore caches
+.gradle/
+
+# Jetifier cache
+.jetifier/
+
+# Android Studio 3 specific
+.idea/caches
+.idea/libraries
+.idea/modules.xml
+.idea/workspace.xml
+.idea/navEditor.xml
+.idea/assetWizardSettings.xml
+
+# Firebase/Google Services config (if you store keys locally)
+# google-services.json
+# Secrets / env
+.env
+
+# Temporary files
+tmp/
+out/
+
+# Crashlytics/fastlane
+.fastlane/
+
+# Mac
+*.DS_Store
+
+# Windows
+Thumbs.db
+
+# keep this file
+!/.gitignore
+
