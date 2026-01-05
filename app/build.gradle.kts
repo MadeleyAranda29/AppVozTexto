@@ -56,6 +56,7 @@ dependencies {
     // ML Kit: Language Identification and On-device Translation
     implementation(libs.mlkit.language.id)
     implementation(libs.mlkit.translate)
+    implementation(libs.androidx.compose.material3)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

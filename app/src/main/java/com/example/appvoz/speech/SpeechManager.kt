@@ -63,7 +63,8 @@ class SpeechManager(
                         isListening = false
                         val matches = results?.getStringArrayList(SpeechRecognizer.RESULTS_RECOGNITION)
                         if (!matches.isNullOrEmpty()) {
-                            onResults(matches.joinToString(separator = " "))
+                            // Usar solo la mejor hipótesis para evitar repeticiones
+                            onResults(matches[0])
                         }
                         onEnd()
                     }

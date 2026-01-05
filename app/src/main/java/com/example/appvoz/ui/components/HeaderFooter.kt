@@ -22,7 +22,7 @@ fun AppFooter() {
     Column(modifier = Modifier.padding(8.dp)) {
         Spacer(modifier = Modifier.padding(4.dp))
         Text(text = "UNIVERSIDAD NACIONAL DE PIURA", style = MaterialTheme.typography.bodySmall)
-        Text(text = "2025-ALBURQUEQUE ANTON SEGIO", style = MaterialTheme.typography.bodySmall)
+        Text(text = "2026 -ALBURQUEQUE ANTON SEGIO", style = MaterialTheme.typography.bodySmall)
         Text(text = "ARANDA ZAPATA MADELEY", style = MaterialTheme.typography.bodySmall)
         Text(text = "MORAN PALACIOS NICK", style = MaterialTheme.typography.bodySmall)
     }

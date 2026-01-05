@@ -1,15 +1,18 @@
 package com.example.appvoz.ui.components
 
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.requiredHeight
 import androidx.compose.material3.BottomAppBar
 import androidx.compose.material3.Button
+import androidx.compose.material3.Divider
+import androidx.compose.material3.Surface
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -25,25 +28,57 @@ fun ActionButtons(
     onTranslate: () -> Unit,
     onSavePdf: () -> Unit
 ) {
-    BottomAppBar {
+    Surface(
+        tonalElevation = 3.dp,
+        shadowElevation = 4.dp,
+        modifier = Modifier.fillMaxWidth()
+    ) {
         Column(
-            modifier = Modifier.fillMaxWidth().padding(horizontal = 12.dp),
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(12.dp),
+            verticalArrangement = Arrangement.spacedBy(8.dp)
         ) {
 
-                // El selector ocupa el espacio disponible para asegurar visibilidad del idioma
-                Box(modifier = Modifier.weight(1f)) {
-                    LanguageSelector(selectedCode = selectedTargetLanguage, onLanguageSelected = onLanguageSelected)
-                }
-                Spacer(modifier = Modifier.width(4.dp ))
-                Row(
-                    horizontalArrangement = Arrangement.spacedBy(4.dp),
-                    verticalAlignment = Alignment.CenterVertically
+            LanguageSelector(
+                selectedCode = selectedTargetLanguage,
+                onLanguageSelected = onLanguageSelected,
+                modifier = Modifier
+                    .fillMaxWidth(),
+                showLabel = false
+            )
+
+            Divider()
+
+            // Fila de botones
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.spacedBy(8.dp),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                // Botón Traducir (con peso para llenar espacio)
+                Button(
+                    onClick = onTranslate,
+                    modifier = Modifier.weight(1f)
                 ) {
-                    Button(onClick = onTranslate) { androidx.compose.material3.Text("Traducir") }
-                    Button(onClick = onSavePdf) { androidx.compose.material3.Text("Descargar PDF") }
-                    RecordButton(isListening = isListening, onStart = onStart, onStop = onStop)
+                    Text("Traducir")
                 }
 
+                // Botón PDF (con peso para llenar espacio)
+                Button(
+                    onClick = onSavePdf,
+                    modifier = Modifier.weight(1f)
+                ) {
+                    Text("PDF")
+                }
+
+                // El botón de grabar se queda con su tamaño fijo
+                RecordButton(
+                    isListening = isListening,
+                    onStart = onStart,
+                    onStop = onStop
+                )
             }
+        }
     }
 }
